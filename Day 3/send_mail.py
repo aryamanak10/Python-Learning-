@@ -15,8 +15,9 @@ def send_mail(text='Email Body', subject='Hello World', from_email='Lionel Messi
     txt_part = MIMEText(text, 'plain')
     msg.attach(txt_part)
 
-    html_part = MIMEText("<h1> This is working </h1>", 'html')
-    msg.attach(html_part)
+    if html != None:
+        html_part = MIMEText(html, 'html')
+        msg.attach(html_part)
     msg_str = msg.as_string()
 
     # login in to my smtp server
